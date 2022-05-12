@@ -69,19 +69,19 @@
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                     <div class="row member-list">
-                        <div class="text-center col-third col">
+                        <div class="text-center col-third col s-col-full mt-32">
                             <p class="member-name">
                                 Name
                             </p>
                             <img src="./assets/img/teams/bandmember1.jpg" alt="Name" class="member-img" >
                         </div>
-                        <div class="text-center col-third col">
+                        <div class="text-center col-third col s-col-full mt-32">
                             <p class="member-name">
                                 Name
                             </p>
                             <img src="./assets/img/teams/bandmember1.jpg" alt="Name" class="member-img" >
                         </div>
-                        <div class="text-center col-third col">
+                        <div class="text-center col-third col s-col-full mt-32">
                             <p class="member-name">
                                 Name
                             </p>
@@ -103,31 +103,31 @@
                         </ul>      
                         <!-- places -->
                         <div class="row place-list">
-                            <div class="col col-third">
+                            <div class="col col-third s-col-full mt-16">
                                 <img src="./assets/img/places/place1.jpg" alt="New York" class="place-img">
                                 <div class="place-body">
                                     <h3 class="place-heading">New York</h3>
                                     <p class="place-time">Fri 27 Nov 2016</p>
                                     <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <button class="btn js-buy-tickets">By Tickets</button>
+                                    <button class="btn js-buy-tickets s-btn-full">By Tickets</button>
                                 </div>
                             </div>
-                            <div class="col col-third">
+                            <div class="col col-third s-col-full mt-16">
                                 <img src="./assets/img/places/place2.jpg" alt="New York" class="place-img">
                                 <div class="place-body">
                                     <h3 class="place-heading">Paris</h3>
                                     <p class="place-time">Sat 28 Nov 2016</p>
                                     <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <button class="btn js-buy-tickets">By Tickets</button>
+                                    <button class="btn js-buy-tickets s-btn-full">By Tickets</button>
                                 </div>
                             </div>
-                            <div class="col col-third">
+                            <div class="col col-third s-col-full mt-16">
                                 <img src="./assets/img/places/place3.jpg" alt="New York" class="place-img">
                                 <div class="place-body">
                                     <h3 class="place-heading">San Francisco</h3>
                                     <p class="place-time">Sun 29 Nov 2016</p>
                                     <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <button class="btn js-buy-tickets">By Tickets</button>
+                                    <button class="btn js-buy-tickets s-btn-full">By Tickets</button>
                                 </div>
                             </div>
                         </div>
@@ -140,33 +140,33 @@
                     </h2>
                     <p class="section-sub-heading">Fan? Drop a note!</p>
                     <div class="row contact-content">
-                        <div class="col col-half contact-info">
+                        <div class="col col-half s-col-full contact-info">
                             <p><i class="ti-location-pin"></i>Chicago, US</p>
-                            <p><i class="ti-mobile"></i>Phone: +00 151515</p>
-                            <p><i class="ti-email"></i>Email: mail@mail.com</p>
+                            <p><i class="ti-mobile"></i>Phone: <a href="tel:+84376971481">+84376971481</a></p>
+                            <p><i class="ti-email"></i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a> </p>
                         </div>
-                        <div class="col col-half contact-form">
+                        <div class="col col-half s-col-full contact-form ">
                             <form action="">
                                 <div class="row">
-                                    <div class="col col-half">
+                                    <div class="col col-half s-col-full ">
                                         <input type="text" name="name" required placeholder="Name" id="" class="form-control">
 
                                     </div>
                                 
-                                    <div class="col col-half">
+                                    <div class="col col-half s-col-full s-mt-8">
                                         <input type="email" name="email" required placeholder="Email" id="" class="form-control">
 
                                     </div>
                                     
                                 </div>
                                 
-                                <div class="row mt-8">
+                                <div class="row mt-8 mt-9">
                                     <div class="col col-full">
                                         <input type="text" name="message" required placeholder="Message" id="" class="form-control">
 
                                     </div>
                                 </div>
-                                <input type="submit" class="btn mt-16 pull-right" name="send" value="Send">
+                                <input type="submit" class="btn mt-16 pull-right s-btn-full" name="send" value="Send">
                             </form>
                         </div>
                     </div>
@@ -270,8 +270,14 @@
         // console.log(menuItems);
         for( var i = 0; i< menuItems.length ; i++){
             var menuItem=menuItems[i];
-            menuItem.onclick = function () {
-                header.style.height=null;
+            
+            menuItem.onclick = function(e){
+                var isParentMenu=this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if(isParentMenu){
+                    e.preventDefault();
+                }else{
+                    header.style.height=null;
+                }
             }
         }
         
